@@ -43,12 +43,18 @@ export function createEncrypt() {
       false,
       ['encrypt']
     )
-    const encrypted = await crypto.subtle.encrypt(
-      algo,
-      encryptKey,
-      encode(data)
-    )
-    return arrayBufferToBase64(encrypted)
+    console.log('encryptKey', encryptKey)
+    try {
+      const encrypted = await crypto.subtle.encrypt(
+        algo,
+        encryptKey,
+        encode(data)
+      )
+      return arrayBufferToBase64(encrypted)
+    } catch (error) {
+      console.log('error', error)
+    }
+
   }
 }
 

@@ -12,6 +12,7 @@ export default async function middleware(req: NextRequest) {
   const encrypt = createEncrypt()
   const { code } = query
 
+  console.log('code', code)
   // When there's no `code` param specified,
   // it's a GET from the client side.
   // We go with the login flow.
